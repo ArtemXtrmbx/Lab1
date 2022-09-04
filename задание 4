@@ -1,1 +1,43 @@
+#include <iostream>
+#include <ctime>
+using namespace std;
 
+int main()
+{
+  srand(time(0));
+  int N;
+  int M;
+  int sum = 0;
+  int j = 0;
+  cout << "Vvedite N - kolvo strock" << endl;
+  cin >> N; 
+  cout << "Vvedite M - kolvo stolb" << endl;
+  cin >> M;
+
+  int **arr = new int*[N];
+
+  for (int i = 0; i < N; i++)
+    arr[i] = new int[M];
+
+  for (int i = 0; i < N; i++)
+  {
+    for (int j = 0; j < M; j++)
+    {
+      arr[i][j] = 1 + rand() % 100;
+      cout  << arr[i][j]<<"\t";
+      sum =sum+ arr[i][j];
+      
+    }
+    cout <<"\n"<< endl;
+    cout << "In " << j + 1 << " col sum is " << sum << endl;
+  }
+  
+    cout << sum << "\n";
+  for (int i = 0; i < N; i++)
+    delete[] arr[i];
+
+  delete[] arr;
+
+  system("pause");
+  return 0;
+}
