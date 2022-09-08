@@ -7,7 +7,7 @@ int main(void)
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 	struct student {
-		char famil[20], name[20], facult[20];
+		char famil[20], name[20], group[20];
 	}stud[3];
 	char s1[20];
 	char s2[20];
@@ -22,7 +22,7 @@ int main(void)
 		scanf_s("%s", &stud[i].name, 20);
 		system("cls");
 		printf("Введите название группы студента %s %s:\n", stud[i].famil, stud[i].name);
-		scanf_s("%s", &stud[i].facult, 20);
+		scanf_s("%s", &stud[i].group, 20);
 		system("cls");
 	}
 	system("cls");
@@ -35,9 +35,9 @@ int main(void)
 		{
 			if (strcmp(s2, stud[i].name) == 0)
 			{
-				if (strcmp(s3, stud[i].facult) == 0)
+				if (strcmp(s3, stud[i].group) == 0)
 				{
-					printf("%s %s %s", stud[i].famil, stud[i].name, stud[i].facult);
+					printf("%s %s %s", stud[i].famil, stud[i].name, stud[i].group);
 				}
 			}
 		}
