@@ -1,64 +1,45 @@
 #include <stdio.h>
-#include <string.h> 
-#include <malloc.h> 
+#include <string.h>
+#include <Windows.h>
 
-// структура, описывающая студента. содержит его фамилию и название группы
-struct Student
+int main(void)
 {
-    char lastName[30];
-    char group[10];
-};
-
-// функция формирует строковый массив фамилий студентов, содержащихся в students, которые учатся в группе group и их фамилия начинается на букву c
-void makeMassAndPrint(Student students[], int N, char group[10], char c)
-{
-    // посчитаем количество студентов, которое нужно будет вывести. это будет число k
-    int k = 0;
-
-    for (int i = 0; i < N; i++)
-    {
-        // если группа i-го студента равна group и первая буква его фамилии равна c, то k++
-        if ((strcmp(students[i].group, group) == 0) && (students[i].lastName[0] == c))
-            k++;
-    }
-
-    // создадим массив под k фамилий
-    char** lastNames = (char**)malloc(k * sizeof(char*));
-
-    k = 0;
-
-    // занесем в массив lastNames все подходящие фамилии
-    for (int i = 0; i < N; i++)
-    {
-        if ((strcmp(students[i].group, group) == 0) && (students[i].lastName[0] == c))
-            lastNames[k++] = students[i].lastName;
-    }
-
-    // выведем их в консоль
-    for (int i = 0; i < k; i++)
-        printf("%s\n", lastNames[i]);
-
-    // освободим память из под массива lastNames
-    free(lastNames);
-}
-
-int main()
-{
-    // объявим массив структур и инициализируем его данными
-    Student students[6] = {
-        "Abdulov", "PM-15",
-        "Viktorov", "PM-15",
-        "Grushin", "PM-15",
-        "Ershov", "PM-15",
-        "Nosov", "PM-15",
-        "Nikolaev", "PM-15" };
-
-    // сюда сохраним название группы из консоли
-    char group[10];
-    // читаем название группы из консоли
-    gets_s(group);
-    // читаем из консоли первую букву фамилии
-    char c = getchar();
-    // вызываем функцию, решающую задачу
-    makeMassAndPrint(students, 6, group, c);
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+	struct student {
+		char famil[20], name[20], facult[20];
+	}stud[3];
+	char s1[20];
+	char s2[20];
+	char s3[20];
+	int i;
+	for (i = 0; i < 3; i++)
+	{
+		printf("Введите фамилию студента:\n");
+		scanf_s("%s", &stud[i].famil, 20);
+		system("cls");
+		printf("Введите имя студента %s:\n", stud[i].famil);
+		scanf_s("%s", &stud[i].name, 20);
+		system("cls");
+		printf("Введите название факультета студента %s %s:\n", stud[i].famil, stud[i].name);
+		scanf_s("%s", &stud[i].facult, 20);
+		system("cls");
+	}
+	system("cls");
+	printf("Введите фамилию, имя и факультет студента, которого хотите найти:\n");
+	scanf_s("%s", &s1, 20);
+	scanf_s("%s", &s2, 20);
+	scanf_s("%s", &s3, 20);
+	for (i = 0; i < 3; i++) {
+		if (strcmp(s1, stud[i].famil) == 0)
+		{
+			if (strcmp(s2, stud[i].name) == 0)
+			{
+				if (strcmp(s3, stud[i].facult) == 0)
+				{
+					printf("%s %s %s", stud[i].famil, stud[i].name, stud[i].facult);
+				}
+			}
+		}
+	}
 }
