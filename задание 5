@@ -21,12 +21,12 @@ int main(void)
 		printf("Введите имя студента %s:\n", stud[i].famil);
 		scanf_s("%s", &stud[i].name, 20);
 		system("cls");
-		printf("Введите название факультета студента %s %s:\n", stud[i].famil, stud[i].name);
+		printf("Введите название группы студента %s %s:\n", stud[i].famil, stud[i].name);
 		scanf_s("%s", &stud[i].facult, 20);
 		system("cls");
 	}
 	system("cls");
-	printf("Введите фамилию, имя и факультет студента, которого хотите найти:\n");
+	printf("Введите фамилию, имя и группу студента, которого хотите найти:\n");
 	scanf_s("%s", &s1, 20);
 	scanf_s("%s", &s2, 20);
 	scanf_s("%s", &s3, 20);
